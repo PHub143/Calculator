@@ -126,6 +126,13 @@
             width: 420px;
         }
 
+        /* Same as above, modified for operators */
+        .clear:focus::after {
+            content: attr(data-clear);
+            margin-left: -210px;
+            width: 420px;
+        }
+
         /* Same as above, modified for result */
         .equals:focus::after {
             content: attr(data-result);
@@ -346,7 +353,7 @@
 
     <div id="calculator" class="calculator">
 
-        <button id="clear" class="clear">C</button>
+        <button id="clear" class="clear" data-clear="Clear">C</button>
 
         <div id="viewer" class="viewer">0</div>
 
@@ -491,19 +498,29 @@
             // KeyDown Event
             var keytype = function (event) {
                 var x = event.key;
+                // Num
                 for (var i = 0; i < nums.length; i++) {
                     var key = nums[i].getAttribute("data-num");
                     if (x === key) {
                         nums[i].click();
+                        nums[i].focus();
                     }
                 }
-
+                //Operator
                 for (var i = 0, l = ops.length; i < l; i++) {
                     var key = ops[i].textContent;
                     if (x == key) {
                         ops[i].click();
+                        ops[i].focus();
                     }
                 }
+                //Clear
+                key = el("#clear").textContent.toLowerCase();
+                if (x == key) {
+                    el("#clear").click();
+                    el("#clear").focus();
+                }
+
 
             };
 
