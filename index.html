@@ -37,7 +37,7 @@
             -webkit-text-fill-color: transparent;
             color: #8c5059;
             font-weight: 400;
-            margin: 0 auto 6em;
+            margin: 0 auto 5em;
             max-width: 9em;
         }
 
@@ -69,12 +69,15 @@
         .viewer {
             color: #c97874;
             float: left;
-            line-height: 3em;
-            text-align: right;
+            line-height: 2em;
+            text-align: center;
             text-overflow: ellipsis;
             overflow: hidden;
-            width: 7.5em;
-            height: 3em;
+            min-width: 100%;
+            max-width: 100%;
+            height: 2em;
+            margin: 0;
+            padding: 0;
         }
 
         button {
@@ -350,12 +353,14 @@
 <body>
     <h1>Simple Calculator</h1>
     <p class="warning">Don't divide by zero</p>
+    <h2 id="viewer" class="viewer">0</h2>
 
     <div id="calculator" class="calculator">
 
         <button id="clear" class="clear" data-clear="Clear">C</button>
-
-        <div id="viewer" class="viewer">0</div>
+        <button id="clear" class="clear" data-clear=""></button>
+        <button id="clear" class="clear" data-clear=""></button>
+        <button id="clear" class="clear" data-clear=""></button>
 
         <button class="num" data-num="7">7</button>
         <button class="num" data-num="8">8</button>
